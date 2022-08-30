@@ -3,7 +3,7 @@ from random import randrange
 
 
 def startgame():
-    score = 0
+    score = 1
     highscore = 100
     guess = None
     down = 'y'
@@ -17,7 +17,7 @@ def startgame():
         gamerunning = True
         while gamerunning == True:
             try:
-                guess = int(input("What's your guess?"))
+                guess = int(input("What's your guess?   "))
             except ValueError:
                 print('guess with numbers dude')
 
@@ -34,21 +34,24 @@ def startgame():
                 if score < highscore:
                     highscore = score
                     print('You got high score!')
-                    score = 0
-                    try:
-                        decide = input("Do you want to play again?")
-                        if decide != 'y' or 'n':
-                            raise Exception('Thats not a valid choice, homie!')
-                        else:
-                            if decide == 'n':
-                                down = decide
-                                gamerunning = False
-                                break
-                            if decide == 'y':
-                                gamerunning = False
-                                break
-                    except:
-                                break
+                    score = 1
+                    down = None
+            while down == None:
+                try:
+                    down = input("Do you want to play again?  ")
+                    if down != 'y' or 'n':
+                        raise Exception('Thats not a valid choice, homie!')
+                except Exception as e:
+                    print(e)
+                else:
+                    if down == 'n':
+                        print(f'Fine, game is over, your highscore is {higscore}')
+                        gamerunning = False
+                        break
+                    if down == 'y':
+                        gamerunning = False
+                        break
+
 
 
 

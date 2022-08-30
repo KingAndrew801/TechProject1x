@@ -1,9 +1,7 @@
 import random
 from random import randrange
 
-down = 'y'
-randnum = None
-score = 0
+
 def startgame():
     score = 0
     highscore = 100
@@ -13,8 +11,7 @@ def startgame():
     print('''Welcome to the guessing game!
     Just type a number and try to guess the number!''')
     print('-' * 50)
-    gamerunning = True
-    gaming = True
+
     while down == 'y':
         randnum = randrange(1, 11)
         gamerunning = True
@@ -33,6 +30,7 @@ def startgame():
             if guess == randnum:
                 print('you got it!')
                 print(f'Game is over bro, you score is {score}')
+                gamerunning = False
                 if score < highscore:
                     highscore = score
                     print('You got high score!')
@@ -45,11 +43,12 @@ def startgame():
                             if decide == 'n':
                                 down = decide
                                 gamerunning = False
+                                break
                             if decide == 'y':
-                                gamerunning = True
-                                continue
+                                gamerunning = False
+                                break
                     except:
-                                continue
+                                break
 
 
 

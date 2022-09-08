@@ -24,6 +24,8 @@ def startgame():
                 if guess < randnum:
                     print('Go higher.')
                     score += 1
+                if guess > 10 or guess < 1:
+                    print(f"That guess is out of range my dude. Choose between 1 and 10.")
                 if guess == randnum:
                     print('you got it!')
                     print(f'Game is over bro, you score is {score}')

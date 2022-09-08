@@ -39,7 +39,6 @@ def startgame():
         deciding = True
         while deciding == True:
             try:
-                print(f"You're doing great homeslice! High score so far is {highscore}.")
                 down = input("Do you want to play again?  ")
                 if down != 'y' and down != 'n':
                     raise Exception('Thats not a valid choice, homie!')
@@ -48,6 +47,7 @@ def startgame():
                     deciding = False
                     break
                 if down == 'y':
+                    print(f"LET'S GET IT! High score so far is {highscore}.")
                     gamerunning = True
                     deciding = False
                     break

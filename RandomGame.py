@@ -32,22 +32,26 @@ def startgame():
                         highscore = score
                         print('You got high score!')
                         score = 1
-                        down = None
+                        gamerunning = False
             except ValueError:
                 print('guess with numbers dude')
-        try:
-            down = input("Do you want to play again?  ")
-            if down != 'y' or 'n':
-                raise Exception('Thats not a valid choice, homie!')
-            if down == 'n':
-                print(f'Fine, game is over, your highscore is {highscore}')
-                gamerunning = False
-                break
-            if down == 'y':
-                gamerunning = False
-                break
-        except Exception as e:
-            print(e)
+
+        deciding = True
+        while deciding == True:
+            try:
+                down = input("Do you want to play again?  ")
+                if down != 'y' and down != 'n':
+                    raise Exception('Thats not a valid choice, homie!')
+                if down == 'n':
+                    print(f'Fine, game is over, your highscore is {highscore}')
+                    deciding = False
+                    break
+                if down == 'y':
+                    gamerunning = True
+                    deciding = False
+                    break
+            except Exception as e:
+                print(e)
 
 
 
